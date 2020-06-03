@@ -1,0 +1,124 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">点餐</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">订单</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 41}}px" bindchange="bindChange" circular="true">
+  <!-- 点餐 -->
+  <swiper-item>
+    <view class="book-box">
+      <scroll-view class="swiper-vertical-nav" scroll-y="true" style="height:{{winHeight -91 }}px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+        <view class="swiper-vertical-tab">
+          <view wx:for="{{menu}}" class="{{currentType==item.id ? 'on' : ''}}" wx:key='item' bindtap="chooseType" data-foodtype="{{item.id}}">
+            {{item.type_name}}
+          </view>
+        </view>
+      </scroll-view>
+
+      <scroll-view class="swiper-vertical-box" scroll-y="true" style="height:{{winHeight - 91 }}px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+        <view wx-if="{{currentType==item.id}}" class="vertical-list" wx:for="{{menu}}" wx:key="foodType" wx:for-index="idx">
+          <text class="title">{{item.type_name}}</text>
+          <view class="type-detail">
+            <view wx:for="{{goods}}" wx:key="foodDetail" wx:for-index="jdx">
+            
+               <image src="{{item.menu_logo==''?'../../image/profile.png':item.menu_logo}}" mode="aspectFill"></image>
+              <view class="book-detail">
+                <text class='food-title'>{{item.menu_name}}</text>
+                <text class='food-vol'>销售 {{item.sale_number}} 份</text>
+                <view class='price'>
+                  <text class="money">￥{{item.price}}</text>
+                  <view class="operations">
+                  <text class="iconfont icon-jianhao" style="color:#d43c43;font-size: 40rpx"  data-num="{{item.num}}" bindtap="reduceFoodNum" wx:if="{{item.num>0}}" data-idx="{{idx}}" data-jdx="{{jdx}}" data-price="{{item.price}}" data-foodName="{{item.menu_name}}"></text>
+                  <text wx:if="{{item.num>0}}" >{{item.num}}</text>
+                  <text class="iconfont icon-jiahao" style="color:#d43c43;font-size: 44rpx" data-num="{{item.num}}" bindtap="addFoodNum" data-idx="{{idx}}" data-jdx="{{jdx}}" data-price="{{item.price}} " data-foodName="{{item.menu_name}}"></text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                
+                </view>
+            </scroll-view>
+    </view>  
+        <!--下单-->
+    <view class="Bill-layer " wx:if="{{showCart&&sumNum>0}}" bindtap="hiddenLayer"></view>
+                  <view class="Bill">
+                    <block wx:if="{{showCart&&sumNum>0}}">
+                      <view class="clearCart">
+                      <text class="iconfont icon-shanchu1" bindtap="clearCart" style="color:#d43c43;line-height: 35px;">清空购物车</text>
+                      </view>
+                      <view class="book-result-detail">
+                          <view wx:for="{{shoppinggoods}}" wx:key="item" wx:for-index="jdx" wx:if="{{item.num>0 && type.foodType != '推荐' && type.foodType != '热销' }}">
+                            <text class='menu_name'>{{item.menu_name}}</text>
+                            <view class="operations">
+                            <text class="iconfont icon-jianhao" style="color:#d43c43;font-size: 40rpx"  data-num="{{item.num}}" bindtap="reduceFoodNum" wx:if="{{item.num>0}}" data-idx="{{idx}}" data-jdx="{{jdx}}" data-price="{{item.price}}" data-foodName="{{item.menu_name}}"></text>
+                  <text wx:if="{{item.num>0}}" >{{item.num}}</text>
+                  <text class="iconfont icon-jiahao" style="color:#d43c43;font-size: 44rpx" data-num="{{item.num}}" bindtap="addFoodNum" data-idx="{{idx}}" data-jdx="{{jdx}}" data-price="{{item.price}} " data-foodName="{{item.menu_name}} "></text>
+                    </view>
+                </view>
+            </view>
+        </block>
+        
+        <view class="takeBill {{showCart? '': 'bdt'}} " >
+            <view class="box-left ">
+                <view class="tips " bindtap="seeDetailCart">
+                    <view>{{sumNum}}</view>
+                </view>
+                <view class="moeny ">￥{{sumMon}}</view>
+            </view>
+            <view class="box-right {{noOrder? 'notake': ''}} " bindtap="placeOrder"
+            >
+            {{ noOrder?'未选购':'购买' }}
+            </view>
+        </view>
+    </view>
+    <login modalShow="{{loginShow}}" bind:loginsuccess="onLoginsuccess" bind:loginfail="onLoginfail" />
+  </swiper-item>
+
+  <!-- 订单 -->
+  <swiper-item>
+    <scroll-view class="order-box " scroll-y="true " style="height:{{winHeight-91}}px; " bindscrolltoupper="upper " bindscrolltolower="lower " bindscroll="scroll ">
+      <view class="page panel ">
+        <view class="c-minheight page__bd ">
+          <view class="weui-form-preview " wx:for="{{orderArray}} " wx:key="item">
+            <view class="weui-form-preview__hd ">
+              <text class="weui-form-preview__label ">订单编号</text>
+              <text class="c-block ddnunber ">{{item.orderId}}</text>
+            </view>
+            <view class="weui-form-preview__hd2 ">
+              <block  wx:for="{{item.orderDetail}} " wx:for-item="items" wx:key="items">
+                <view class="weui-form-preview__item ">
+                  <text class="weui-form-preview__label2 ">{{items.menu_name}}</text>
+                  <view class="weui-form-preview__value ">
+                    <text>￥</text>{{items.price}}
+                    <text>×{{items.num}}</text>
+                  </view>
+                </view>
+              </block>
+              <view class="weui-form-preview__item ">
+                <text class="weui-form-preview__label2 ">订单状态</text>
+                <text class="weui-form-preview__value ">{{ item.status}}</text>
+              </view>
+              <view class="weui-form-preview__item ">
+                <text class="weui-form-preview__label2 ">备注</text>
+                <text class="weui-form-preview__value ">{{ item.remarks }}</text>
+              </view>
+              <view class="weui-form-preview__item ">
+                <text class="weui-form-preview__label2 ">日期</text>
+                <text class="weui-form-preview__value ">{{item.createdAt}}</text>
+              </view>
+            </view>
+            <view class="weui-form-preview__hd " style='border-bottom:none'>
+              <text class="weui-form-preview__label ">付款金额</text>
+              <text class="c-block wx-text_n5HRT0 ">￥{{item.amount}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class='refresh' bindtap='refresh'>
+      刷新订单
+    </view>
+  </swiper-item>
+
+</swiper>

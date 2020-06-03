@@ -1,0 +1,29 @@
+/* pages/index/index.wxss */
+.wrap{ padding: 30rpx 40rpx;}
+.row{ border-bottom: 1px dashed #eee;padding: 20rpx}
+
+.header { display: flex; justify-content: space-between; padding: 30rpx 20rpx;}
+.header .content{ display: flex; flex-direction: column; justify-content: center}
+.header text{ display: block;}
+.header .name{font-size: 48rpx;}
+.header .type{font-size: 28rpx; color: #999; margin-top: 10rpx;}
+.header .cover image{ width: 120rpx; height: 120rpx; border-radius: 100%}
+
+.link{ font-size: 32rpx; display: flex; align-items: center; justify-content: space-between}
+.link image{ width: 20px; height: 20px;}
+.link .content{ display: flex; align-items: center;}
+.link .content image{ margin-right: 10rpx}
+.link .btn{ font-size: 28rpx; border-radius: 3px; border: 1px solid green; display: flex; align-items: center; justify-content: center; padding: 0; color: green; position: relative; min-width: 50px;}
+.link .contact{ opacity: 0}
+.link .btn text{ position: absolute; width: 100%; height: 100%; display: block; text-align: center; left: 0; z-index: -1}
+
+.ul { padding: 20rpx}
+.ul .li{ display: flex; font-size: 28rpx; color: #666; padding: 20rpx 0; justify-content: space-between; flex-wrap: wrap}
+.ul .li .content{ display: flex; justify-content: center}
+.ul .li .content image{ width: 20px; height: 20px; margin-right: 10rpx;}
+.ul .li .content text{ flex: 1}
+.ul .li .cell{ color: #ddd}
+
+.wx-image-row{ display: flex; width: 100%; box-sizing: border-box; flex-wrap: wrap; justify-content: flex-start; margin-top: 20rpx}
+.wx-image-row .wx-image-item{ width: 33.3333%; height: 212rpx; padding:1rpx; box-sizing: border-box}
+.wx-image-row .img{ width: 100%; height: 100%;}

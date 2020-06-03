@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "search":"/components/search/search",
+    "login": "/components/login/login",
+    "blog-ctrl": "/components/blog-ctrl/blog-ctrl",
+    "blog-card": "/components/blog-card/blog-card"
+  },
+  "navigationBarTitleText": "益禾圈"
+}

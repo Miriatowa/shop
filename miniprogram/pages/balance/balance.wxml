@@ -1,0 +1,52 @@
+<view class="takeOrder">
+<form bindsubmit="settlement" >
+  <view class="place"></view>
+  <view class="food-detail {{idx==detail.length?'nobd':''}} nomt" wx:for="{{order}}" wx:key="item" wx:for-index="idx">
+    <text>{{item.menu_name}}</text>
+    <view>
+      <text>￥</text>{{item.price}}
+      <text>×{{item.num}}</text>
+    </view>
+  </view>
+  <view class="place"> </view>
+  <!-- <view class='modal'>
+    <view class='title' style=" padding-bottom: {{ localPlace?'0':'' }}">
+      <text>餐桌号</text>
+      <text class='place_num' wx:if="{{localPlace || isLocal}}" >{{place}}号桌</text>
+    </view>
+    <input type="number" placeholder="输入您所在餐桌号" name="tableNum" wx:if="{{!localPlace}}" bindinput="bindPlaceInput" maxlength="4"/>
+  </view>
+  <view class="place"> </view>
+  <view class='modal'>
+    <view class='title'>
+      <text>餐具份数</text>
+      <text class='place_num' wx:if="{{peopleNum}}">{{peopleNum}}份餐具</text>
+    </view>
+    <view class='wx-wrap'>
+      <scroll-view class=" wx-scroll-view" lower-threshold="50" scroll-x="True" style="overflow-x: auto; overflow-y: hidden; " upper-threshold="50">
+        <view class="wx-view">
+          <view class="wx-navigator_movieitem {{ peopleNum==item?'on':'' }}" wx:for="{{people}}" wx:key="item" data-num="{{item}}" bindtap='selectPeople'>
+            <text>{{item}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="place"> </view> -->
+  <view class='modal'>
+    <view class='title'>
+    <text>备注</text>
+    </view>
+      <textarea type="text" placeholder="请输入备注内容(可不填)" name="remarks"></textarea>
+  </view>
+  <view class="takeBill">
+    <view class="box-left">
+      金额：
+      <text>￥{{sumMon}}</text>
+    </view>
+    <button class="box-right" formType="submit">
+      结算
+    </button>
+  </view>
+</form>
+</view>

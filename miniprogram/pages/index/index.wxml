@@ -1,0 +1,60 @@
+
+<view class='wrap'>
+  <view class='row header'>
+    <view class='content'>
+      <text class='name'>{{data.title}}</text>
+      <text class='type'>{{data.type}}</text>
+    </view>
+    <view class='cover'><image src='{{data.logo}}' mode='aspectFit'></image></view>
+  </view>
+ <view class='row link'>
+    <view class='content'>
+      <image src='../../images/shoucang.png' mode='aspectFit'></image>
+      <text>产品</text>
+    </view>
+    <text class='btn' bind:tap="look">查看</text>
+ </view> 
+  <view class='row link'>
+    <view class='content'>
+      <image src='../../images/liuyan.png' mode='aspectFit'></image>
+      <text>人工客服</text>
+    </view>
+    <view class='btn'>
+      <contact-button type="default-light" size="20" session-from="weapp" class='contact'></contact-button>
+      <text>联系</text>
+    </view>
+ </view>
+ <view class='ul'>
+  <view class='li' bindtap='getmap'>
+    <view class='content'>
+      <image src='../../images/map.png' mode='aspectFit'></image>
+      <text>{{data.address}}</text>
+    </view>
+    <view class='cell'>❯</view>
+  </view>
+  <view class='li'>
+    <view class='content'>
+      <image src='../../images/time.png' mode='aspectFit'></image>
+      <text>{{data.time}}</text>
+    </view>
+  </view>
+  <view class='li' bindtap='call' data-tel="{{data.tel}}">
+    <view class='content'>
+      <image src='../../images/tel.png' mode='aspectFit'></image>
+      <text>{{data.tel}}</text>
+    </view>
+    <view class='cell'>❯</view>
+  </view>
+  <view class='li'>
+    <view class='content'>
+      <image src='../../images/img.png' mode='aspectFit'></image>
+      <text>门店照片</text>
+    </view>
+    <view class='wx-image-row'>
+      <!-- <view  wx:for="{{img}}" wx:key="index" wx:for-item="items" class='wx-image-item' bindtap='preview' data-index="index"> -->
+        <image src='{{data.picUrl}}' class='wx-image-item'></image>
+      <!-- </view> -->
+    </view>
+  </view>
+ </view>
+</view>

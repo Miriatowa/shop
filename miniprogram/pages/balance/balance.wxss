@@ -1,0 +1,162 @@
+page {
+  background: #ececec;
+  padding-bottom: 51px;
+}
+
+.takeOrder {
+  background: #fff;
+}
+
+.takeOrder .place {
+  height: 5px;
+  background: #ececec;
+  width: 100%;
+}
+
+.food-detail {
+  overflow: hidden;
+  margin-left: 15px;
+  border-bottom: 1px solid #e1e1e1;
+  height: 50px;
+  line-height: 50px;
+  padding-right: 15px;
+}
+
+.food-detail>text {
+  float: left;
+  color: #fa4d22;
+  font-size: 28rpx;
+}
+
+.food-detail>view {
+  float: right;
+}
+
+.food-detail>view text {
+  font-size: 15px;
+  color: #999;
+}
+
+.nobd {
+  border: 0 none;
+}
+
+.takeBill {
+  height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #e6e6e6;
+  background: #fff;
+}
+
+.takeBill .box-left {
+  float: left;
+  line-height: 50px;
+  padding-left: 15px;
+}
+
+.takeBill .box-right {
+  float: right;
+  background: #fa4d22;
+  font-size: 18px;
+  color: #fff;
+  width: 120px;
+  border-radius: 0;
+  height: 50px;
+}
+
+.takeBill .box-left text {
+  color: #fa4b22;
+}
+
+.food-detail>view input {
+  text-align: right;
+  margin-top: 13px;
+}
+
+.food-detail input, .food-detail textarea {
+  max-width: 244px;
+}
+
+.nomt>view {
+  margin-top: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.place_num {
+  font-size: 16px;
+}
+
+.modal {
+  padding: 30rpx;
+}
+
+.modal .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  padding-bottom: 15rpx;
+}
+
+.modal input {
+  background: #f1f1f1;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.modal textarea {
+  background: #f1f1f1;
+  padding: 20rpx 20rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.wx-wrap {
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+.wx-view {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+}
+
+.wx-scroll-view {
+  width: 100%;
+}
+
+.wx-navigator_movieitem {
+  border-right: 1px solid #eee;
+  width: 100rpx;
+  padding: 15rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wx-navigator_movieitem text {
+  display: block;
+  width: inherit;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.wx-navigator_movieitem:nth-last-of-type(1) {
+  border: 0;
+  width: 150rpx;
+}
+
+.wx-navigator_movieitem.on {
+  background: #fa4d22;
+  color: #fff;
+}

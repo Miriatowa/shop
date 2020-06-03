@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order/order",
+    "pages/blog/blog",
+    "pages/blog-edit/blog-edit",
+    "pages/blog-comment/blog-comment",
+    "pages/balance/balance",
+    "pages/personal-blog/personal-blog",
+    "pages/personal/personal"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#d43c43",
+    "navigationBarTitleText": "益和堂",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#474747",
+    "selectedColor": "#d43c43",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "/images/shouye.png",
+      "selectedIconPath": "/images/shouye_active.png"
+    },
+    {
+      "pagePath": "pages/order/order",
+      "text": "分类",
+      "iconPath": "/images/order.png",
+      "selectedIconPath": "/images/order_active.png"
+    },
+    {
+      "pagePath": "pages/blog/blog",
+      "text": "益禾圈",
+      "iconPath": "/images/blog.png",
+      "selectedIconPath": "/images/blog_active.png"
+    },
+    {
+      "pagePath": "pages/personal/personal",
+      "text": "个人中心",
+      "iconPath": "/images/wode.png",
+      "selectedIconPath": "/images/wode_active.png"
+    }]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
